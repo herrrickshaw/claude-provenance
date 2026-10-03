@@ -1,0 +1,44 @@
+{
+  "claude-ai-export/design_chats/41b4f501-3cc0-4852-92da-c8f81c7fa2c3.json": {
+    "mtime": 1784592803.6164565,
+    "seen": 1789193286.2400808,
+    "ast_hash": "bbf50e1e2fd60f49bbb2670ff21bda99",
+    "semantic_hash": ""
+  },
+  "claude-ai-export/design_chats/b8d0c855-f9b7-422c-ad1f-2fc0965920ef.json": {
+    "mtime": 1784592803.6184735,
+    "seen": 1789193286.240084,
+    "ast_hash": "d7ae7fd7eae61f0dbe6b194e7949f697",
+    "semantic_hash": ""
+  },
+  "provenance_log.py": {
+    "mtime": 1784592771.793452,
+    "seen": 1789193286.240086,
+    "ast_hash": "a99854f8305298c36aabd3be103fe749",
+    "semantic_hash": ""
+  },
+  "PROVENANCE_SUMMARY.md": {
+    "mtime": 1784592805.492888,
+    "seen": 1789193286.240087,
+    "ast_hash": "947f0b5e90ece2948a555c174acb1df4",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1784592815.4271712,
+    "seen": 1789193286.240088,
+    "ast_hash": "5e51e0df0c261b2b84821a26fbe4fe4a",
+    "semantic_hash": ""
+  },
+  "SOP.md": {
+    "mtime": 1784701914.974787,
+    "seen": 1789193286.2400892,
+    "ast_hash": "f1bb53630961be84767e5c7292c19d8c",
+    "semantic_hash": ""
+  },
+  ".github/workflows/quality-gates.yml": {
+    "mtime": 1789577605.4501405,
+    "seen": 1789968636.228821,
+    "ast_hash": "510f7e392c07f0574ba8a559ba2cdf12",
+    "semantic_hash": ""
+  }
+}

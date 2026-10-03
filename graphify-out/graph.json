@@ -1,0 +1,924 @@
+{
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "nodes": [
+    {
+      "id": "provenance_log",
+      "label": "provenance_log.py",
+      "file_type": "code",
+      "source_file": "provenance_log.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_now_iso",
+      "label": "now_iso()",
+      "file_type": "code",
+      "source_file": "provenance_log.py",
+      "source_location": "L93",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_sha256_text",
+      "label": "sha256_text()",
+      "file_type": "code",
+      "source_file": "provenance_log.py",
+      "source_location": "L97",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_extract_content",
+      "label": "extract_content()",
+      "file_type": "code",
+      "source_file": "provenance_log.py",
+      "source_location": "L101",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_file_changed",
+      "label": "file_changed()",
+      "file_type": "code",
+      "source_file": "provenance_log.py",
+      "source_location": "L130",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_ingest_transcript",
+      "label": "ingest_transcript()",
+      "file_type": "code",
+      "source_file": "provenance_log.py",
+      "source_location": "L140",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_ingest_history",
+      "label": "ingest_history()",
+      "file_type": "code",
+      "source_file": "provenance_log.py",
+      "source_location": "L194",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_ingest_claude_ai_export",
+      "label": "ingest_claude_ai_export()",
+      "file_type": "code",
+      "source_file": "provenance_log.py",
+      "source_location": "L229",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_ingest_design_chat",
+      "label": "ingest_design_chat()",
+      "file_type": "code",
+      "source_file": "provenance_log.py",
+      "source_location": "L263",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_rebuild_session_stats",
+      "label": "rebuild_session_stats()",
+      "file_type": "code",
+      "source_file": "provenance_log.py",
+      "source_location": "L300",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_write_summary",
+      "label": "write_summary()",
+      "file_type": "code",
+      "source_file": "provenance_log.py",
+      "source_location": "L315",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "provenance_log.py",
+      "source_location": "L351",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_rationale_2",
+      "label": "Provenance log for all Claude messages on this machine. Ingests three sources…",
+      "file_type": "rationale",
+      "source_file": "provenance_log.py",
+      "source_location": "L2",
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_rationale_102",
+      "label": "Return (text, tool_names) from a transcript 'message' payload.",
+      "file_type": "rationale",
+      "source_file": "provenance_log.py",
+      "source_location": "L102",
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_rationale_230",
+      "label": "conversations.json from claude.ai Settings -> Privacy -> Export data.",
+      "file_type": "rationale",
+      "source_file": "provenance_log.py",
+      "source_location": "L230",
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_log_rationale_264",
+      "label": "One design_chats/<uuid>.json file from a claude.ai data export.",
+      "file_type": "rationale",
+      "source_file": "provenance_log.py",
+      "source_location": "L264",
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_summary",
+      "label": "PROVENANCE_SUMMARY.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "source_file": "PROVENANCE_SUMMARY.md",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_summary_claude_message_provenance_log",
+      "label": "Claude Message Provenance Log",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "PROVENANCE_SUMMARY.md",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_summary_by_source",
+      "label": "By source",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "PROVENANCE_SUMMARY.md",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_summary_by_project",
+      "label": "By project",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "PROVENANCE_SUMMARY.md",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_summary_by_model",
+      "label": "By model",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "PROVENANCE_SUMMARY.md",
+      "source_location": "L29",
+      "_origin": "ast"
+    },
+    {
+      "id": "provenance_summary_20_most_recent_sessions",
+      "label": "20 most recent sessions",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "PROVENANCE_SUMMARY.md",
+      "source_location": "L42",
+      "_origin": "ast"
+    },
+    {
+      "id": "readme",
+      "label": "README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "readme_claude_message_provenance_log",
+      "label": "Claude Message Provenance Log",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "readme_sources_covered",
+      "label": "Sources covered",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L6",
+      "_origin": "ast"
+    },
+    {
+      "id": "readme_what_each_message_row_records",
+      "label": "What each message row records",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L27",
+      "_origin": "ast"
+    },
+    {
+      "id": "readme_usage",
+      "label": "Usage",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L36",
+      "_origin": "ast"
+    },
+    {
+      "id": "readme_keep_local",
+      "label": "⚠️ Keep local",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L63",
+      "_origin": "ast"
+    },
+    {
+      "id": "sop",
+      "label": "SOP.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "source_file": "SOP.md",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "sop_standard_operating_procedures_data_research_workflows",
+      "label": "Standard Operating Procedures — Data & Research Workflows",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "SOP.md",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "sop_sop_1_onboard_a_new_data_source",
+      "label": "SOP-1 · Onboard a new data source",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "SOP.md",
+      "source_location": "L14",
+      "_origin": "ast"
+    },
+    {
+      "id": "sop_sop_2_daily_market_scan_report",
+      "label": "SOP-2 · Daily market scan & report",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "SOP.md",
+      "source_location": "L56",
+      "_origin": "ast"
+    },
+    {
+      "id": "sop_sop_3_backtest_screener_research",
+      "label": "SOP-3 · Backtest / screener research",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "SOP.md",
+      "source_location": "L78",
+      "_origin": "ast"
+    },
+    {
+      "id": "sop_sop_4_repo_secrets_publishing_hygiene",
+      "label": "SOP-4 · Repo, secrets & publishing hygiene",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "SOP.md",
+      "source_location": "L102",
+      "_origin": "ast"
+    },
+    {
+      "id": "sop_sop_5_memory_discipline",
+      "label": "SOP-5 · Memory discipline",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "SOP.md",
+      "source_location": "L123",
+      "_origin": "ast"
+    },
+    {
+      "id": "sop_environment_quick_reference",
+      "label": "Environment quick-reference",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "SOP.md",
+      "source_location": "L139",
+      "_origin": "ast"
+    }
+  ],
+  "links": [
+    {
+      "source": "provenance_log",
+      "target": "argparse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "hashlib",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "json",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "os",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "sqlite3",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "sys",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "datetime",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "provenance_log_now_iso",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "provenance_log_sha256_text",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "provenance_log_extract_content",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L101",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "provenance_log_file_changed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L130",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "provenance_log_ingest_transcript",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L140",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "provenance_log_ingest_history",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L194",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "provenance_log_ingest_claude_ai_export",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L229",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "provenance_log_ingest_design_chat",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L263",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "provenance_log_rebuild_session_stats",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L300",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "provenance_log_write_summary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L315",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log",
+      "target": "provenance_log_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L351",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_ingest_transcript",
+      "target": "provenance_log_extract_content",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L161",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_ingest_transcript",
+      "target": "provenance_log_sha256_text",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L173",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_ingest_transcript",
+      "target": "provenance_log_now_iso",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L174",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_ingest_history",
+      "target": "provenance_log_sha256_text",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L214",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_ingest_history",
+      "target": "provenance_log_now_iso",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L215",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_ingest_claude_ai_export",
+      "target": "provenance_log_sha256_text",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L248",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_ingest_claude_ai_export",
+      "target": "provenance_log_now_iso",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L249",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_ingest_design_chat",
+      "target": "provenance_log_sha256_text",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L285",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_ingest_design_chat",
+      "target": "provenance_log_now_iso",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L286",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_write_summary",
+      "target": "provenance_log_now_iso",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L334",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_main",
+      "target": "provenance_log_file_changed",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L368",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_main",
+      "target": "provenance_log_ingest_transcript",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L371",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_main",
+      "target": "provenance_log_ingest_history",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L377",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_main",
+      "target": "provenance_log_ingest_claude_ai_export",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L383",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_main",
+      "target": "provenance_log_ingest_design_chat",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L388",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_main",
+      "target": "provenance_log_rebuild_session_stats",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L391",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_main",
+      "target": "provenance_log_write_summary",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L401",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_rationale_2",
+      "target": "provenance_log",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_rationale_102",
+      "target": "provenance_log_extract_content",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_rationale_230",
+      "target": "provenance_log_ingest_claude_ai_export",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L230",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_log_rationale_264",
+      "target": "provenance_log_ingest_design_chat",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "provenance_log.py",
+      "source_location": "L264",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_summary",
+      "target": "provenance_summary_claude_message_provenance_log",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PROVENANCE_SUMMARY.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_summary_claude_message_provenance_log",
+      "target": "provenance_summary_by_source",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PROVENANCE_SUMMARY.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_summary_claude_message_provenance_log",
+      "target": "provenance_summary_by_project",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PROVENANCE_SUMMARY.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_summary_claude_message_provenance_log",
+      "target": "provenance_summary_by_model",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PROVENANCE_SUMMARY.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "provenance_summary_claude_message_provenance_log",
+      "target": "provenance_summary_20_most_recent_sessions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "PROVENANCE_SUMMARY.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "readme",
+      "target": "readme_claude_message_provenance_log",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "readme_claude_message_provenance_log",
+      "target": "readme_sources_covered",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "readme_claude_message_provenance_log",
+      "target": "readme_what_each_message_row_records",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "readme_claude_message_provenance_log",
+      "target": "readme_usage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "readme_claude_message_provenance_log",
+      "target": "readme_keep_local",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "sop",
+      "target": "sop_standard_operating_procedures_data_research_workflows",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SOP.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "sop_standard_operating_procedures_data_research_workflows",
+      "target": "sop_sop_1_onboard_a_new_data_source",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SOP.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "sop_standard_operating_procedures_data_research_workflows",
+      "target": "sop_sop_2_daily_market_scan_report",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SOP.md",
+      "source_location": "L56",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "sop_standard_operating_procedures_data_research_workflows",
+      "target": "sop_sop_3_backtest_screener_research",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SOP.md",
+      "source_location": "L78",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "sop_standard_operating_procedures_data_research_workflows",
+      "target": "sop_sop_4_repo_secrets_publishing_hygiene",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SOP.md",
+      "source_location": "L102",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "sop_standard_operating_procedures_data_research_workflows",
+      "target": "sop_sop_5_memory_discipline",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SOP.md",
+      "source_location": "L123",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "sop_standard_operating_procedures_data_research_workflows",
+      "target": "sop_environment_quick_reference",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "SOP.md",
+      "source_location": "L139",
+      "weight": 1.0,
+      "_origin": "ast"
+    }
+  ],
+  "directed": false
+}
