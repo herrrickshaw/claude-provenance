@@ -75,6 +75,17 @@ CREATE TABLE IF NOT EXISTS messages (
 CREATE INDEX IF NOT EXISTS idx_messages_session ON messages(session_id);
 CREATE INDEX IF NOT EXISTS idx_messages_ts      ON messages(ts);
 CREATE INDEX IF NOT EXISTS idx_messages_type    ON messages(record_type);
+-- Source transcripts are append-only. When a re-ingest finds that a line that was
+-- already recorded now hashes differently (or has disappeared), the original hash
+-- is kept here instead of being silently overwritten.
+CREATE TABLE IF NOT EXISTS integrity_violations (
+    src_file        TEXT NOT NULL,
+    src_line        INTEGER NOT NULL,
+    old_sha256      TEXT,
+    new_sha256      TEXT,               -- NULL: line no longer present / no longer a message
+    first_ingested_at TEXT,
+    detected_at     TEXT NOT NULL
+);
 CREATE TABLE IF NOT EXISTS sessions (
     session_id  TEXT PRIMARY KEY,
     project     TEXT,
@@ -127,6 +138,41 @@ def extract_content(message):
     return "\n".join(t for t in texts if t), tools
 
 
+def replace_rows(cur, path, rows):
+    """Replace the message rows of one source file, recording tampering.
+
+    Any line that was already ingested and now has a different content hash, or is
+    gone, is written to integrity_violations before the rows are replaced.
+    Returns the number of violations recorded.
+    """
+    src = str(path)
+    old = {
+        line: (sha, ing)
+        for line, sha, ing in cur.execute(
+            "SELECT src_line, content_sha256, ingested_at FROM messages WHERE src_file=?",
+            (src,),
+        )
+    }
+    new = {r[1]: r[20] for r in rows}
+    detected = now_iso()
+    violations = [
+        (src, line, sha, new.get(line), ing, detected)
+        for line, (sha, ing) in sorted(old.items())
+        if line not in new or new[line] != sha
+    ]
+    cur.executemany(
+        "INSERT INTO integrity_violations VALUES (?,?,?,?,?,?)", violations
+    )
+    cur.execute("DELETE FROM messages WHERE src_file=?", (src,))
+    cur.executemany(
+        "INSERT OR REPLACE INTO messages VALUES (" + ",".join(["?"] * 23) + ")", rows
+    )
+    if violations:
+        print(f"  !! {len(violations)} previously ingested line(s) changed in {src}",
+              file=sys.stderr)
+    return len(violations)
+
+
 def file_changed(cur, path):
     st = path.stat()
     row = cur.execute(
@@ -149,6 +195,8 @@ def ingest_transcript(cur, path, project, source="claude-code"):
             try:
                 d = json.loads(line)
             except json.JSONDecodeError:
+                continue
+            if not isinstance(d, dict):
                 continue
             rtype = d.get("type")
             sid = d.get("sessionId")
@@ -173,10 +221,7 @@ def ingest_transcript(cur, path, project, source="claude-code"):
                 len(text), sha256_text(text) if text else None,
                 text[:PREVIEW_CHARS], now_iso(),
             ))
-    cur.execute("DELETE FROM messages WHERE src_file=?", (str(path),))
-    cur.executemany(
-        "INSERT OR REPLACE INTO messages VALUES (" + ",".join(["?"] * 23) + ")", rows
-    )
+    replace_rows(cur, path, rows)
     for sid, title in titles.items():
         cur.execute(
             "INSERT INTO sessions(session_id, project, title, src_file) VALUES (?,?,?,?) "
@@ -201,6 +246,8 @@ def ingest_history(cur, path):
                 d = json.loads(line)
             except json.JSONDecodeError:
                 continue
+            if not isinstance(d, dict):
+                continue
             text = d.get("display", "")
             ts = d.get("timestamp")
             if isinstance(ts, (int, float)):
@@ -214,10 +261,7 @@ def ingest_history(cur, path):
                 len(text), sha256_text(text) if text else None,
                 text[:PREVIEW_CHARS], now_iso(),
             ))
-    cur.execute("DELETE FROM messages WHERE src_file=?", (str(path),))
-    cur.executemany(
-        "INSERT OR REPLACE INTO messages VALUES (" + ",".join(["?"] * 23) + ")", rows
-    )
+    replace_rows(cur, path, rows)
     st = path.stat()
     cur.execute(
         "INSERT OR REPLACE INTO source_files VALUES (?,?,?,?,?,?)",
@@ -248,10 +292,7 @@ def ingest_claude_ai_export(cur, path):
                 None, len(text), sha256_text(text) if text else None,
                 text[:PREVIEW_CHARS], now_iso(),
             ))
-    cur.execute("DELETE FROM messages WHERE src_file=?", (str(path),))
-    cur.executemany(
-        "INSERT OR REPLACE INTO messages VALUES (" + ",".join(["?"] * 23) + ")", rows
-    )
+    replace_rows(cur, path, rows)
     st = Path(path).stat()
     cur.execute(
         "INSERT OR REPLACE INTO source_files VALUES (?,?,?,?,?,?)",
@@ -285,10 +326,7 @@ def ingest_design_chat(cur, path):
             None, len(text), sha256_text(text) if text else None,
             text[:PREVIEW_CHARS], now_iso(),
         ))
-    cur.execute("DELETE FROM messages WHERE src_file=?", (str(path),))
-    cur.executemany(
-        "INSERT OR REPLACE INTO messages VALUES (" + ",".join(["?"] * 23) + ")", rows
-    )
+    replace_rows(cur, path, rows)
     st = Path(path).stat()
     cur.execute(
         "INSERT OR REPLACE INTO source_files VALUES (?,?,?,?,?,?)",

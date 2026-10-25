@@ -34,7 +34,10 @@ The 2026-07-21 export is already ingested; its files are kept in
 - **When**: original message timestamp + ingest timestamp
 - **Who**: role, model (e.g. claude-sonnet-5), CLI version, git branch, cwd
 - **What**: record type, tool calls made, content length, 300-char preview
-- **Integrity**: sha256 of the full content (tamper-evidence)
+- **Integrity**: sha256 of the full content. On re-ingest, a previously recorded line whose
+  hash changed (or that disappeared) is logged to the `integrity_violations` table with the
+  original hash, instead of being silently overwritten. The DB itself is not signed or
+  anchored, so this detects edits to the source transcripts, not edits to `provenance.db`.
 - **Lineage**: message uuid + parent uuid (reconstructs the conversation DAG)
 
 ## Usage
