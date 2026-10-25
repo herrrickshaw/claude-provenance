@@ -150,6 +150,8 @@ def ingest_transcript(cur, path, project, source="claude-code"):
                 d = json.loads(line)
             except json.JSONDecodeError:
                 continue
+            if not isinstance(d, dict):
+                continue
             rtype = d.get("type")
             sid = d.get("sessionId")
             if rtype in ("custom-title", "ai-title") and sid:
@@ -200,6 +202,8 @@ def ingest_history(cur, path):
             try:
                 d = json.loads(line)
             except json.JSONDecodeError:
+                continue
+            if not isinstance(d, dict):
                 continue
             text = d.get("display", "")
             ts = d.get("timestamp")
