@@ -21,3 +21,12 @@ fetch the document itself — never cite a search snippet as if it had been read
 - **Record** for every figure: URL read, title/date, page/table, fetch route; mark abstract-only or
   snippet-only sources. Fetch politely (~1 request/second per host, no bulk crawling).
 <!-- /source-fetch-toolkit -->
+
+## Working in this repo
+
+- Single module: `provenance_log.py` (CLI flags `--claude-ai-export`, `--summary`, `--full`;
+  paths `DB_PATH`, `PROJECTS_DIR`, `HISTORY_FILE` are module constants). Keep flags, schema
+  and output format byte-compatible — the owner runs this file from `~/claude-provenance`.
+- Verify with `ruff check . && pytest` (see `pyproject.toml`); tests build a synthetic
+  `~/.claude` tree in `tmp_path` and never read the real one.
+- Never commit `provenance.db` or regenerate `PROVENANCE_SUMMARY.md`/`graphify-out/` in a PR.
