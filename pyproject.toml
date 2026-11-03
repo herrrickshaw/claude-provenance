@@ -1,0 +1,22 @@
+[project]
+name = "claude-provenance"
+version = "0.1.0"
+description = "Per-message provenance log of local Claude Code / claude.ai transcripts in SQLite"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+extend-exclude = ["claude-ai-export", "graphify-out", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "SIM"]
+ignore = ["SIM103"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
