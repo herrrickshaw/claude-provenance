@@ -24,9 +24,9 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1784592815.4271712,
-    "seen": 1789193286.240088,
-    "ast_hash": "5e51e0df0c261b2b84821a26fbe4fe4a",
+    "mtime": 1792914003.1624703,
+    "seen": 1792992638.104002,
+    "ast_hash": "eadc7c63e3a18194f913bf8585e68bf4",
     "semantic_hash": ""
   },
   "SOP.md": {
@@ -39,6 +39,18 @@
     "mtime": 1789577605.4501405,
     "seen": 1789968636.228821,
     "ast_hash": "510f7e392c07f0574ba8a559ba2cdf12",
+    "semantic_hash": ""
+  },
+  "HOW_TO_USE_WITH_AI.md": {
+    "mtime": 1792914003.1586723,
+    "seen": 1792992638.1039932,
+    "ast_hash": "0432964757c9362bcc86335d75efedae",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1792914003.1865435,
+    "seen": 1792992638.104009,
+    "ast_hash": "1c88ac97bd5c8579bc0a7bbccda3d562",
     "semantic_hash": ""
   }
 }
