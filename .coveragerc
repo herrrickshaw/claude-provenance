@@ -1,0 +1,5 @@
+[run]
+source = provenance_log
+omit =
+    tests/*
+    */conftest.py
