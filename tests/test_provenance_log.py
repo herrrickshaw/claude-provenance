@@ -92,7 +92,9 @@ def test_file_changed(cur, tmp_path):
     assert pl.file_changed(cur, p) is True                                  # size differs
     cur.execute("UPDATE source_files SET size=?, mtime=?", (st.st_size, st.st_mtime + 1))
     assert pl.file_changed(cur, p) is True                                  # mtime differs by 1s
-    cur.execute("UPDATE source_files SET mtime=?", (st.st_mtime + 1e-7,))
+    nudged = st.st_mtime + 4.8e-7                                           # two float ulps at this magnitude
+    assert 1e-9 < abs(nudged - st.st_mtime) < 1e-6
+    cur.execute("UPDATE source_files SET mtime=?", (nudged,))
     assert pl.file_changed(cur, p) is False                                 # < 1e-6 tolerance
 
 
@@ -129,6 +131,12 @@ def test_ingest_transcript_row_fields(cur, tmp_path):
     assert r["sy3"]["content_preview"] == "" and r["sy3"]["content_sha256"] is None and r["sy3"]["role"] == "system"
     assert r["u2"]["content_chars"] == 0 and r["u2"]["role"] == "user"
     assert [x["src_line"] for x in rows(cur)] == [1, 2, 3, 4, 5, 7]
+
+
+def test_message_role_beats_record_type(cur, tmp_path):
+    p = jl(tmp_path / "t.jsonl", {"type": "user", "uuid": "x", "sessionId": "s", "message": {"role": "tool", "content": "c"}})
+    pl.ingest_transcript(cur, p, "p")
+    assert rows(cur)[0]["role"] == "tool" and rows(cur)[0]["record_type"] == "user"
 
 
 def test_source_line_numbers_count_blank_and_bad_lines(cur, tmp_path):
@@ -196,6 +204,12 @@ def test_ingest_history(cur, tmp_path):
     assert r[0]["content_sha256"] == pl.sha256_text("first prompt") and r[2]["content_sha256"] is None and r[2]["content_chars"] == 0
     sf = rows(cur, "SELECT * FROM source_files")[0]
     assert sf["lines_parsed"] == 5 and sf["messages_kept"] == 4
+
+
+def test_history_float_timestamps_are_converted(cur, tmp_path):
+    p = jl(tmp_path / "h.jsonl", {"display": "a", "timestamp": 1_767_000_000.75})
+    pl.ingest_history(cur, p)
+    assert rows(cur)[0]["ts"] == "2025-12-29T09:20:00+00:00"
 
 
 def test_history_timestamp_just_above_1e12_is_milliseconds(cur, tmp_path):
@@ -293,6 +307,11 @@ def test_write_summary(env, cur, tmp_path):
     assert "| projA | 2 |" in text and "| claude-x | 1 |" in text
     assert "| 2026-01-02T00:00:00Z | `s1` | A title that is much longer than sixty characters in total l | 1 | 1 |" in text
     assert text.index("## By source") < text.index("## By project") < text.index("## By model") < text.index("## 20 most recent sessions")
+
+
+def test_summary_labels_missing_project(env, cur):
+    cur.execute("INSERT INTO messages (src_file, src_line, source, project, ingested_at) VALUES ('f', 1, 'prompt-history', NULL, 'now')")
+    assert "| ? | 1 |" in pl.write_summary(cur).read_text()
 
 
 def test_summary_limits_projects_to_15_and_sessions_to_20(env, cur):
